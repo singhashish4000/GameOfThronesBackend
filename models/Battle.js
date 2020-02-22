@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 const BattleSchema = new Schema({
   _id: Number,
   name: String,
-  year: String,
+  year: Number,
   battleNumber: Number,
-  attackerKing: String,
-  defenderKing: String,
+  attacker_king: String,
+  defender_king: String,
   attacker_1: String,
   attacker_2: String,
   attacker_3: String,

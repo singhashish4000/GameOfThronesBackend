@@ -27,7 +27,7 @@ app
   .get(battleController.countOfAllBattles)
 
 app
-  .route("/search")
+  .route("/search/:keys?")
   .get(battleController.search)    
 
 app

@@ -31,6 +31,16 @@ exports.countOfAllBattles = (req, res) => {
   })
 };
 
+exports.search = (req, res) => {
+  Battle.find(req.query, (err, battles) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    console.log('res', battles)
+    res.status(200).send(battles);
+  });
+};
+
 exports.createNewBattle = (req, res) => {
   let newBattle = new Battle(req.body);
   newBattle.save((err, battle) => {
