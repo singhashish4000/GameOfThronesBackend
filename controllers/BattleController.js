@@ -32,6 +32,8 @@ exports.countOfAllBattles = (req, res) => {
 };
 
 exports.search = (req, res) => {
+  console.log(req.query)
+  console.log(req.params)
   Battle.find(req.query, (err, battles) => {
     if (err) {
       res.status(500).send(err);
@@ -41,44 +43,4 @@ exports.search = (req, res) => {
   });
 };
 
-exports.createNewBattle = (req, res) => {
-  let newBattle = new Battle(req.body);
-  newBattle.save((err, battle) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-    res.status(201).json(battle);
-  });
-};
 
-exports.readBattle = (req, body) => {
-  Battle.findById(req.params.battleid, (err, battle) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-    res.status(200).json(battle);
-  });
-};
-
-exports.updateBattle = (req, res) => {
-  Battle.findOneAndUpdate(
-    { _id: req.params.battleid },
-    req.body,
-    { new: true },
-    (err, battle) => {
-      if (err) {
-        res.status(500).send(err);
-      }
-      res.status(200).json(battle);
-    }
-  );
-};
-
-exports.deleteBattle = (req, res) => {
-  Battle.remove({ _id: req.params.battleid }, (err, battle) => {
-    if (err) {
-      res.status(404).send(err);
-    }
-    res.status(200).json({ message: "Battle successfully deleted" });
-  });
-};
