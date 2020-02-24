@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const dbURI =
-  "mongodb+srv://ashish:reactMongoTask@cluster0-mq0zw.mongodb.net/test?retryWrites=true";
+  "mongodb+srv://<username>:<password>@cluster0-mq0zw.mongodb.net/gameOfThrones?retryWrites=true";
 
 const options = {
   reconnectTries: Number.MAX_VALUE,
